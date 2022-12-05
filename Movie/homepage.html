@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Movie-Library</title>
+    <link rel="stylesheet" href="">
+    <style>
+        
+        @font-face{
+            font-family:myAnimationFont;
+            src: url(Poppins-Medium.ttf);
+            }
+        
+        @font-face{
+            font-family:myHeadingFont;
+            src: url(AlfaSlabOne-Regular.ttf);
+            }
+        @font-face{
+            font-family:myBannerFont;
+            src: url(Poppins-Medium.ttf);
+            
+            }
+                        
+        @keyframes heading-color-change {
+            from {background-color: rgb(177, 157, 7);}
+            to {background-color: rgb(238, 251, 7);}
+            }               
+        #heading{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border : 4px solid rgb(7, 11, 1);
+            border-radius: 16px;
+            border-style: bold;
+            background-color: rgb(238, 251, 7);
+            font-weight:900;
+            text-shadow: 2px 2px #aaa;
+            font-family:myHeadingFont;
+            letter-spacing:5px;
+            }
+        #heading:hover{
+            letter-spacing:15px;
+            animation-name:heading-color-change;
+            animation-duration:1.5s;
+        }
+
+        #navbar{
+            display:flex;
+            
+            border-radius: 16px;
+            list-style-type:none;
+            justify-content: space-evenly;
+            border: 4px solid black;
+            
+            background-color:rgb(238, 251, 7);
+            animation-name: example;
+            animation-duration: 5s;
+            
+        }
+        
+        #bnrline1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family:myBannerFont;
+            font-size: 15px;
+
+        }
+
+        #animationpart{
+            font-family:myAnimationFont;
+        }
+
+        #bannerComplete{
+            display: flex;
+            align-content:space-between ;
+            justify-content: center;
+            align-items: center;
+        }
+    #animationpart{
+        
+        border-radius: 16px;
+        display: flex;
+        justify-content: space-between;
+        transition: width 2s;
+        
+        
+    }
+    
+    #A1::before{
+        content:"movies";
+        content:"television_programs";
+        content:"anime アニメ";
+
+        animation:animate infinite 7s;
+        
+        }
+
+    #video{
+        display: flex;
+           
+            justify-content: center;
+            align-items: center;
+            
+    }
+
+    #audio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    #location{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        
+        
+    }
+
+    #bday{
+        width: 90px;
+    }
+
+    
+        @keyframes animate {
+    0% {
+      content: "movies";
+  }
+
+  50% {
+      content: "television_programs";
+  }
+
+  75% {
+      content: "anime アニメ";
+  }
+}
+
+ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    font-family:myBannerFont;
+
+}
+
+#image{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    
+}
+
+
+div img{
+    border: 5px solid #555;
+    border-radius: 8px;
+    max-width: 100%;
+    padding: 5px;
+    width: 150px;
+   height: auto;
+   background-color: rgb(238, 251, 7);
+}
+
+div img:hover{
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black; 
+    font-size: 30px;
+
+}
+/* The animation code */
+@keyframes example {
+  from {background-color: white;}
+  to {background-color: rgb(238, 251, 7);}
+  to {background-color: rgb(73, 209, 6);}
+}
+
+#auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#auth1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black ;
+    height: 20px;
+    width: 120px;
+    border-radius: 7px;
+    background-color:rgb(238, 251, 7);
+   
+    font-family:myHeadingFont;
+    letter-spacing:3px;
+            
+}
+#auth2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black ;
+    height: 20px;
+    width: 120px;
+    border-radius: 7px;
+    background-color:rgb(238, 251, 7);
+  
+    font-family:myHeadingFont;
+    letter-spacing:3px;
+            
+}
+
+#movieList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black ;
+    height: 30px;
+    width: 110x;
+    border-radius: 7px;
+    background-color:rgb(238, 251, 7);
+    
+    font-family:myHeadingFont;
+    letter-spacing:1px;
+}
+
+#domparser{
+    text-decoration: none;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black ;
+    height: 50;
+    width: 120px;
+    border-radius: 7px;
+    background-color:rgb(238, 251, 7);
+    
+    font-family:myHeadingFont;
+    
+}
+
+table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+  
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+  
+        tr:nth-child(even) {
+            background-color: #7ce2af
+        }
+  
+        th {
+            background-color: #7c0f65;
+            color: white;
+        }
+
+    #loginBtn{
+        text-decoration: none;
+    }
+
+    #registerBtn{
+        text-decoration: none;
+    }
+
+    </style>
+</head>
+<body>
+    <div >
+       <ul id="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">TV-Series</a></li>
+        <li><a href="#">Anime</a></li>
+       </ul>
+    </div>
+    <br>
+    <div id="heading"> <h1>MOVIE-LIBRARY<h1> </div>
+        <br>
+        <br>
+   <div id="bannerComplete">
+    <h1 id="bnrline1">Movie-Library will help you find your &nbsp;</h1>
+<div id="animationpart">
+    <span id="A1"></span>
+</div>
+</div>
+<div id="image">
+    <div><a href="https://www.imdb.com/title/tt0073707/"><img src="1.jpg" alt=""></a></div>
+    <div><a href="https://www.imdb.com/title/tt6277462"><img src="2.jpg" alt=""></a></div>
+    <div><a href="https://www.imdb.com/title/tt9179430"><img src="3.jpg" alt=""></a></div>
+    <div><a href="https://www.imdb.com/title/tt2560140"><img src="4.jpg" alt=""></a></div>
+    <div><a href="https://www.imdb.com/title/tt6077448"><img src="5.jpg" alt=""></a></div>
+</div>
+<br>
+<div id="auth">
+    <div id="auth1"><a id="loginBtn"href="login.html">Login</a></div>
+    <br>
+    <div id="auth2"><a id="registerBtn"href="register.html">Register</a></div>
+    <br>
+    <button onclick="loadXMLDoc()" id="movieList"><a href="domPraser.html" id="domparser">Movie Collection</a></button>
+   
+</div>
+
+<br>
+
+
+    
+    </body>
+    
+    <style type="text/css">
+        table, th, td {
+      border: 0px solid black;
+    }
+    </style>
+        
+</body>
+</html>

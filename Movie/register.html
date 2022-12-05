@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      @font-face {
+        font-family: myAnimationFont;
+        src: url(Poppins-Medium.ttf);
+      }
+
+      #login {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid black;
+        border-radius: 15px;
+        justify-content: center;
+        align-items: center;
+
+        padding-top: 10px;
+
+        padding-right: 50px;
+        padding-bottom: 10px;
+        padding-left: 50px;
+        margin: auto;
+
+        width: 50%;
+        padding: 10px;
+
+        position: relative;
+
+        background-color: rgb(238, 251, 7);
+        font-family: myAnimationFont;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="login">
+        <label for="fname">Name</label>
+      <input type="text" id="usernm" name="fname" /> <br>
+      <label for="fname">E-mail</label> 
+      <input type="email" placeholder="username@mca.christuniversity.in" id="e"><br>
+      <label for="fname">Password</label> 
+      <input type="password" pattern ="(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title = "Weak Password!" placeholder="Password" id ="pswd" required/>
+      <input type="password" placeholder="Confirm Password" id="cpswd"/>
+    
+
+      <br />
+      <input type="submit" onclick="verifyDetails()" value="create" />
+    </form>
+
+    <script type="text/javascript">
+      
+      
+  function verifyDetails() {
+  var unm = document.getElementById("usernm").value;
+  var pw = document.getElementById("pswd").value;
+  var cpw = document.getElementById("cpswd").value;
+  var user = document.getElementById("e").value;
+
+  var reg_email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  var reg_username = /^[a-zA-Z]+$/;
+  var strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
+  var mediumPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,})|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))/;
+
+
+  // check for valid email address
+      var user2 = document.getElementById("e");
+      var unm2 = document.getElementById("usernm");
+      var passw1 = document.getElementById("pswd");
+                   
+  // check for username
+  if(unm == "") {
+    alert("Username Cannot be Empty!");
+    return false;
+  }
+  //check empty password field
+  if(pw == "") {
+    alert ("Password Cannot be Blank!"); 
+    return false;
+  }
+  
+ //minimum password length validation
+  if(pw.length < 8) {
+    alert ("Password Length is too short!");
+    return false;
+  }
+//maximum length of password validation
+  if(pw.length > 15) {
+     alert("Password length must not exceed 15 characters");
+     return false;
+  }
+  if(cpw != pw){
+    alert("Passwords Do Not Match!");
+    return false;
+  }
+  // valid email
+  if (reg_email.test(user)) {
+            }
+            else {
+                user2.style.border = "red solid 3px";
+                return false;
+            }
+  //check for valid username
+    if (reg_username.test(unm)) {
+    } else {
+      unm2.style.border = "red solid 3px";
+      return false;
+    }
+  }
+    //captcha
+    //password strength
+    if(strongPassword.test(pw)) {
+        passw1.style.border = "green solid 3px";
+    } else if(mediumPassword.test(pw)) {
+        passw1.style.border = 'blue solid 3px';
+    } else {
+        passw1.style.border = 'red solid 3px';
+    }
+      </script>
+  </body>
+</html>
