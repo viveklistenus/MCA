@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+input[type=button] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=text] {
+    font-size: larger;
+}
+
+#cookies{
+    display: flex;
+    border: 2px solid black;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#head{
+    display: flex;
+    border: 2px solid black;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+</head>
+<body>
+
+<h2 id="head">Cookies</h2>
+<div id="cookies">
+    <form name = "myform" action = "">
+        Enter Data: <input type = "text" name = "customer"/>
+        <br>
+    <input type="button" value="Set Cookie" onclick="WriteCookie();">
+    <input type="button" value="Get Cookie" onclick="ReadCookie();">
+    <input type="button" value="Set Expiry" onclick="SetExpiry();">
+    <input type="button" value="Delete" onclick="DeleteCookie();">
+    </form>
+    
+</div>
+<script>
+    function WriteCookie() {
+    if( document.myform.customer.value == "" ) {
+       alert("Enter some value!");
+       return;
+    }
+    cookievalue ="name:" +escape(document.myform.customer.value);
+    document.cookie = cookievalue;
+    alert(cookievalue);
+ }
+ function ReadCookie() {
+    var allcookies = cookievalue;
+    if(cookievalue.length == 0){
+      alert("No cookies");
+    }
+    document.write ("All Cookies : " + allcookies );
+   
+    // Get all the cookies pairs in an array
+    cookiearray = allcookies.split(';');
+   
+    // Now take key value pair out of this array
+    for(var i=0; i<cookiearray.length-1; i++) {
+       name = cookiearray[i].split('=')[0];
+       value = cookiearray[i].split('=')[1];
+       document.write ("Cookie Value: "+cookiearray);
+    }
+ }
+ function SetExpiry() {
+    var now = new Date();
+    now.setDate( now.getDate() + 1);
+    alert(now);
+    cookievalue = escape(document.myform.customer.value) + ";"
+   
+    document.cookie = "name=" + cookievalue;
+    document.cookie = "expires=" + now.toUTCString() + ";"
+    document.write ("Setting Cookies : " + "name=" + cookievalue + "\n");
+ }
+ function DeleteCookie() {
+    var now = new Date();
+    now.setDate( now.getDate() - 1);
+    alert(now);
+    cookievalue = escape(document.myform.customer.value) + ";"
+   
+    document.cookie = "name=" + cookievalue + "\n";
+    document.cookie = "expires=" + now.toUTCString() + ";\n"
+    document.write("Setting Cookies : " + "name=" + cookievalue + "\n");
+ }
+</script>
+</body>
+</html>
+
