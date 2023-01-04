@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB 7</title>
+    <script src="angular.min.js"></script>
+    <script src="lab7.js"></script>
+    <link rel="stylesheet" href="lab7.css">
+</head>
+<body ng-app="Packages">
+    <div ng-controller="Packagesctrl">
+        <div id="title">Angular Js and JSON</div>
+        <br>
+        
+       <div style=" margin: auto;
+       width: 50%;
+       border: 3px solid green;
+       padding: 10px;">Rows to display:  <input type="number" step="1" min="0" max="7" ng-model="rowlimit"/><br><br></div> 
+       <div style=" margin: auto;
+       width: 50%;
+       border: 3px solid green;
+       padding: 10px;">Search:  <input type="text" placeholder="Search for item" ng-model="search"><br><br></div> 
+       <div style=" margin: auto;
+       width: 50%;
+       border: 3px solid green;
+       padding: 10px;">Enter the number of characters:  <input type="text" placeholder="Enter no. of characters" ng-model="limit"><br><br></div> 
+        <table style="border:1px solid black;margin-left:auto;margin-right:auto;">
+            <tr>
+                <th>Movie Title
+                    <br>
+                    <input type="text" ng-model="search.name" placeholder="Search Title">
+                </th>
+                <th>Date of Release
+                    <br>
+                    <input type="text" ng-model="search.doa" placeholder="Search Release Date">
+                </th>
+                <th>Director
+                    <br>
+                    <input type="text" ng-model="search.location" placeholder="Search Director">
+                </th>
+                <th>Genre
+                    <br>
+                    <input type="text" ng-model="search.rating" placeholder="Search Genre">
+                </th>
+                <th>Cinematography
+                    <br>
+                    <input type="text" ng-model="search.price" placeholder="Search Cinematography">
+                </th>
+                <th>Budget
+                    <br>
+                    <input type="text" ng-model="search.price" placeholder="Search Budget">
+                </th>
+            </tr>
+            <tbody>
+                <tr ng-repeat="htl in items|limitTo:rowlimit|filter:search">
+                    <td>{{htl.name|namefilter:limit}}</td>
+                    <td>{{htl.doa|date:"dd/MM/yyyy"}}</td>
+                    <td>{{htl.location|uppercase}}</td>
+                    <td>{{htl.rating|lowercase}}</td>
+                    <td>{{htl.price|namefilter:limit}}</td>
+                    <td>{{htl.budget|namefilter:limit}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
