@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <style>
+            #banner{
+                display: flex;
+                justify-content: space-between;
+                
+            }
+            
+            p a{
+                border: 2px solid black;
+                border-radius: 15px;
+                padding: 20px;
+                
+              }
+            p a:hover{
+                background-color: yellow;
+            }
+            h1{
+                text-align: center;
+                border: 2px solid black;
+            }
+
+        </style>
+    </head>
+    <body ng-app="MyApp">
+        <br>
+        <h1>Angular JS Single Page Application</h1>
+        <br>
+        <br>
+        <div id="banner">
+        <p><a href="#/!"> Main</a></p>
+        <p><a href="#!end">Go to Movies</a></p>
+        <p><a href="#!exo">Go to TV-Shows</a></p>
+        </div>
+        <br>
+        <div ng-view ng-controller="MyCtrl"></div>
+        <script>
+            var app=angular.module("MyApp",["ngRoute"]);
+            app.config(function($routeProvider){
+            $routeProvider
+            .when("/",{
+                templateUrl : "main.html"
+            })
+            .when("/end",{
+                templateUrl : "movies.html"
+            })
+            .when("/exo",{
+                templateUrl : "tvshows.html"
+            });
+            });
+            app.controller("MyCtrl",function($scope,$http){
+           $http.get("lab8.json").then(function(response){
+           $scope.mydata=response.data.records;
+           });
+        });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+       <style>
+        *{
+    padding: 0;
+    margin: 0;
+}
+body{
+    
+    background-attachment:fixed;
+}
+.navbar{
+    background-color: #f6b319;
+    height:60px;
+}
+.navbar > img{
+    border-radius: 50px;
+    height: 50px;
+    width:55px;
+    padding-left: 10px;
+    padding-top:5px;
+}
+.navbar span{
+    position:relative;
+    bottom:30%;
+    left: 3%;
+    padding-left:10px;
+    color: #61122f;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;;
+}
+.navbar a{
+    position: relative;
+    left:40%;
+    bottom:30%;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.navbar a:visited, a:link{
+    color: #61122f;
+}
+.navbar a:hover,a:active{
+    color: red;
+}
+.menu h2{
+    color: black;
+    text-align: center;
+    padding-top:30px;
+    font-weight: 900;
+    font-size: 34px;
+    font-family: sans-serif;
+    font-style: italic;
+    padding-bottom: 30px;
+}
+.menu table{
+    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+.menu th{
+    border: 2px solid black;
+    color:blac;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 20px;
+}
+.menu table td{
+    border: 2px solid black;
+    color:black;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+ 
+       </style>
+    </head>
+    <body>
+        <div class="menu" ng-app="MyApp" ng-controller="MyCtrl">
+           <h2>List of Movies</h2>
+            <table>
+                <tr>
+                    <th>TITLE</th>
+                    <th>DIRECTOR</th>
+                    <th>RATING</th>
+                    <th>GENRE</th>
+                </tr>
+                <tr ng-repeat="x in mydata">
+                    <td  ng-if="x.id=='m'">{{x.name}}</td>
+                    <td ng-if="x.id=='m'">{{x.species}}</td>
+                    <td ng-if="x.id=='m'">{{x.alive}}</td>
+                    <td ng-if="x.id=='m'">{{x.habitat}}</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var app=angular.module("MyApp",[]);
+           
+            app.controller("MyCtrl",function($scope, $http) {            
+            $http.get("lab8.json").then(function(response){
+                $scope.mydata=response.data.records;
+            });
+             
+              
+    
+    });
+    
+        </script>
+    </body>
+</html>
